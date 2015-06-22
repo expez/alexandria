@@ -35,7 +35,7 @@ class CustomNavbar extends React.Component {
           ]}
           brand="Alexandria"
           fluid={true}>
-          <Nav>
+          <Nav right>
             <form className="navbar-form" role="search">
               <Input type="text"
                 addonBefore={searchButton}
