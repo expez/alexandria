@@ -18,19 +18,18 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+      "root.jQuery": "jquery"
+    })
   ],
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.less']
   },
   module: {
-    preLoaders: [
-      {
-        test: /\.js$/, // include .js files
-        exclude: /node_modules/, // exclude any and all files in the node_modules folder
-        loader: "jshint-loader"
-      }
-    ],
     loaders: [
       {
         test: /\.css$/,
@@ -42,11 +41,10 @@ module.exports = {
         test: /\.less$/,
         loader: "style!css!less?strictMath&noIeCompat"
       },
-
       //{ test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
 
-      { test: /bootstrap\/js\//, loader: 'imports?jQuery=jquery' },
-      { test: /\.js$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/ },
+      // { test: /transition.js$/, loader: 'imports?jQuery=jquery' },
+      { test: /\.jsx?$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/ },
       { test: /\.json$/, loaders: ['json']},
 
       // Needed for the css-loader when

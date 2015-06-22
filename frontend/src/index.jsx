@@ -3,7 +3,6 @@ import Router from 'react-router';
 import App from './components/Application';
 import routes from './routes';
 
-
 import "bootstrap-webpack";
 //require('bootstrap-webpack!./bootstrap.config.js');
 

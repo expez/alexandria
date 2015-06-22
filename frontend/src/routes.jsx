@@ -11,8 +11,7 @@ var routes = (
   <Route name="app" path="/" handler={require("./components/Application")}>
     <Route name="index" transitionName="yolo" handler={require("./components/pages/Index")} addHandlerKey={true}/>
     <Route name="about" handler={require("./components/pages/About")} addHandlerKey={true}/>
-    <Route name="map" handler={require("./components/pages/Map")} addHandlerKey={true}/>
-  </Route>
+    </Route>
 );
 
 module.exports = routes;
