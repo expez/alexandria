@@ -1,8 +1,7 @@
 import React from "react";
 import Radium from 'radium';
 import {Link} from "react-router";
-import {Navbar, Input, Glyphicon, Button,
-  MenuItem, DropdownButton, Nav} from 'react-bootstrap';
+import {Navbar, Input, Glyphicon, Button, MenuItem, Nav} from 'react-bootstrap';
 
 
 import ReactRouterBootstrap from 'react-router-bootstrap';
