@@ -1,8 +1,6 @@
 import React from "react";
 import Radium from 'radium';
 import {Link} from "react-router";
-import {Navbar, Input, Glyphicon, Button, MenuItem, Nav} from 'react-bootstrap';
-
 
 import ReactRouterBootstrap from 'react-router-bootstrap';
 var {NavItemLink, ButtonLink} = ReactRouterBootstrap;
@@ -11,40 +9,43 @@ var styles = {
   navbar: {
     background: "#404040",
     color: "#999",
-    textAlign: "center",
-    marginBottom: "0px"
+    marginBottom: "0px",
+    display: "flex"
   },
-  link: {
-    "padding-bottom": "1px",
-    border: 0,
-    color: "#999"
+  searchArea: {
+    marginLeft: "auto"
+  },
+  brand: {
+    alignSelf: "flex-start"
   }
 };
 
-const searchButton = <Glyphicon glyph='search' />;
-
 class CustomNavbar extends React.Component {
+
   render() {
     return (
       <header className="Site-header">
-        <Navbar
+        <nav
+          className="navbar navbar-default"
           style={[
             styles.navbar,
-            this.props.style
-          ]}
-          brand="Alexandria"
-          fluid={true}>
-          <Nav right>
-            <form className="navbar-form" role="search">
-              <Input type="text"
-                addonBefore={searchButton}
+            this.props.style]}>
+          <a className="navbar-brand" href="#"
+            style={[styles.brand]} >
+            Alexandria
+          </a>
+          <nav>
+            <form className="navbar-form" role="search" style={[styles.searchArea]}>
+              <glyphicon glyph='search' />
+              <input type="text"
                 className="form-control"
                 placeholder="Search"
                 name="q"
               />
+              <button className="btn btn-primary">Search</button>
             </form>
-          </Nav>
-        </Navbar>
+          </nav>
+        </nav>
       </header>
     );
   }
