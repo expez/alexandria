@@ -13,8 +13,7 @@ import Editor from './Editor'
 var styles = {
   Site: {
     display: "flex",
-    flex: "1 0 auto",
-    width: "100%"
+    flex: "0 1 auto"
   }
 }
 
