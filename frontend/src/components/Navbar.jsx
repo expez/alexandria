@@ -34,8 +34,8 @@ class CustomNavbar extends React.Component {
             style={[styles.brand]} >
             Alexandria
           </a>
-          <nav>
-            <form className="navbar-form" role="search" style={[styles.searchArea]}>
+          <nav style={[styles.searchArea]}>
+            <form className="navbar-form" role="search">
               <glyphicon glyph='search' />
               <input type="text"
                 className="form-control"
