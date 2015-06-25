@@ -4,8 +4,7 @@ var config = require('./webpack.config');
 var express = require('express');
 var proxy = require('proxy-middleware');
 var url = require('url');
-
-
+var jsonServer = require('json-server')
 /*
  * The idea behind this piece of code is to start _two_ servers.
  *
@@ -19,7 +18,6 @@ var url = require('url');
 
 var app = express();
 
-app.use('/api', proxy(url.parse('http://localhost:8900/api')));
 app.use('/scripts', proxy(url.parse('http://localhost:3000/scripts')));
 
 app.get('/*', function(req, res) {
@@ -44,10 +42,23 @@ server.listen(3000, 'localhost', function(err, result) {
 });
 
 
+//app.use('/api', proxy(url.parse('http://localhost:8900/api')));
 // Connect directly to the proxy server while developing.
-app.listen(8081, 'localhost', function(err, result) {
-    if (err) {
-        console.log(err);
-    }
-    console.log('Starting proxy at localhost:8081');
-});
+//app.listen(8081, 'localhost', function(err, result) {
+//    if (err) {
+//        console.log(err);
+//    }
+//    console.log('Starting proxy at localhost:8081');
+//});
+
+// until we have a proper backend use
+var server = jsonServer.create()
+
+// Set default middlewares (logger, static, cors and no-cache)
+server.use(jsonServer.defaults)
+
+// Returns an Express router
+var router = jsonServer.router('../backend/db.json')
+server.use(router)
+
+server.listen(8081)

@@ -33,6 +33,7 @@
     "imports-loader": "^0.6.4",
     "jest-cli": "^0.4.12",
     "json-loader": "^0.5.2",
+    "json-server": "^0.7.19",
     "jsx-loader": "^0.13.2",
     "less": "^2.5.1",
     "less-loader": "^2.2.0",
