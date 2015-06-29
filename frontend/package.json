@@ -51,7 +51,7 @@
   "scripts": {
     "test": "jest",
     "start": "node server.js",
-    "lint": "eslint src"
+    "lint": "eslint . --ext .js --ext .jsx"
   },
   "repository": {
     "type": "git",
