@@ -6,6 +6,6 @@ import routes from './routes';
 import "bootstrap-webpack";
 //require('bootstrap-webpack!./bootstrap.config.js');
 
-Router.run(routes, function(Handler) {
-    React.render( <Handler/> , document.body);
+Router.run(routes, function (Handler) {
+  React.render(<Handler/>, document.getElementById('app'));
 });
