@@ -52,13 +52,13 @@ server.listen(3000, 'localhost', function(err, result) {
 //});
 
 // until we have a proper backend use
-var server = jsonServer.create()
+var server = jsonServer.create();
 
 // Set default middlewares (logger, static, cors and no-cache)
-server.use(jsonServer.defaults)
+server.use(jsonServer.defaults);
 
 // Returns an Express router
 var router = jsonServer.router('../backend/db.json')
-server.use(router)
+server.use(router);
 
-server.listen(8081)
+server.listen(8081);
