@@ -40,7 +40,7 @@ class Navbar extends React.Component {
           <ul>
             {libraries.map((lib) => {
               return (
-                <li>{lib.name}</li>
+                <li key={lib.id}>{lib.name}</li>
               );
             })
             }
