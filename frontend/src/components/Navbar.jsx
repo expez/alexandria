@@ -37,10 +37,12 @@ class Navbar extends React.Component {
              style={[styles.brand]}>
             Alexandria
           </a>
-          <ul>
+          <ul className="nav navbar-nav libraries">
             {libraries.map((lib) => {
               return (
-                <li key={lib.id}>{lib.name}</li>
+                <li key={lib.id}>
+                  <a>{lib.name}</a>
+                </li>
               );
             })
             }
