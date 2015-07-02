@@ -1,9 +1,7 @@
-import React from "react";
+import React from 'react';
 import Radium from 'radium';
-import {Link} from "react-router";
-
-import ReactRouterBootstrap from 'react-router-bootstrap';
-var {NavItemLink, ButtonLink} = ReactRouterBootstrap;
+import {Link} from 'react-router';
+import LibraryStore from '../stores/LibraryStore';
 
 var styles = {
   navbar: {
@@ -20,9 +18,14 @@ var styles = {
   }
 };
 
-class CustomNavbar extends React.Component {
+class Navbar extends React.Component {
+
+  static propTypes = {
+    libraries: React.PropTypes.array.isRequired
+  };
 
   render() {
+    const libraries = this.props.libraries;
     return (
       <header className="Site-header">
         <nav
@@ -31,17 +34,25 @@ class CustomNavbar extends React.Component {
             styles.navbar,
             this.props.style]}>
           <a className="navbar-brand" href="#"
-            style={[styles.brand]} >
+             style={[styles.brand]}>
             Alexandria
           </a>
+          <ul>
+            {libraries.map((lib) => {
+              return (
+                <li>{lib.name}</li>
+              );
+            })
+            }
+          </ul>
           <nav style={[styles.searchArea]}>
             <form className="navbar-form" role="search">
-              <glyphicon glyph='search' />
+              <glyphicon glyph='search'/>
               <input type="text"
-                className="form-control"
-                placeholder="Search"
-                name="q"
-              />
+                     className="form-control"
+                     placeholder="Search"
+                     name="q"
+                />
               <button className="btn btn-primary">Search</button>
             </form>
           </nav>
@@ -51,4 +62,4 @@ class CustomNavbar extends React.Component {
   }
 }
 
-export default Radium(CustomNavbar);
+export default Radium(Navbar);
